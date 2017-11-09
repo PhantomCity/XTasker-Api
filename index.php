@@ -3,7 +3,7 @@
 include_once('storelib.php');
 
 $USER_ID = '9254359d88ed69cd760b3bc672ae5548';
-//print_r( $USER_ID );
+$DB_FILE = '../storage/bases/xnotes.sqlitedb';
 
 unset($data);
 
@@ -22,12 +22,12 @@ if ( isset($_GET['jd']) ) //json data
 
 /////////////////////////////////////////////////////////////
 
-$db = storage_open('Storage.sqlitedb');
+$db = storage_open($DB_FILE);
 
 if ('add' == $act)
 {
   storage_append($db, $USER_ID, $data);
-  echo '!!!';
+  echo 'appended';
 }
 
 
